@@ -40,12 +40,11 @@ class TableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
 
         let model = usersData[indexPath.row]
         
-        cell.textLabel?.text = "\(model.name) "
-        cell.detailTextLabel?.text = "\(model.surname)"
+        cell.set(object: model)
         return cell
     }
     
