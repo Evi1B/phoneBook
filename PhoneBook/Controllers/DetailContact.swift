@@ -15,8 +15,21 @@ class DetailContact: UITableViewController {
     @IBOutlet weak var phoneNumberTF: UITextField!
     @IBOutlet weak var cityTF: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateButtonSave()
+    }
+    private func updateButtonSave(){
+        let name = nameTF.text ?? ""
+        let phone = phoneNumberTF.text ?? ""
+        
+        saveButton.isEnabled = !name.isEmpty && !phone.isEmpty
+    }
+    
+    @IBAction func textChaged(_ sender: UITextField) {
+        updateButtonSave()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

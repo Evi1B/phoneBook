@@ -80,6 +80,9 @@
                                                     <rect key="frame" x="16" y="0.0" width="382" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textChaged:" destination="6PV-PN-BRk" eventType="editingChanged" id="QOT-fv-LL1"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -130,6 +133,9 @@
                                                     <rect key="frame" x="16" y="0.0" width="382" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                    <connections>
+                                                        <action selector="textChaged:" destination="6PV-PN-BRk" eventType="editingChanged" id="tQ1-gg-MDf"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -189,6 +195,7 @@
                         <outlet property="cityTF" destination="gm5-Fs-dQF" id="llV-Nv-TxB"/>
                         <outlet property="nameTF" destination="QYa-hZ-NTh" id="sVd-T5-Ds9"/>
                         <outlet property="phoneNumberTF" destination="JKq-wO-NB9" id="jg7-as-IeI"/>
+                        <outlet property="saveButton" destination="ucD-cf-Maj" id="Fu4-H9-q9e"/>
                         <outlet property="surnameTF" destination="sHP-5H-3Kp" id="5ia-5f-Ymz"/>
                     </connections>
                 </tableViewController>
