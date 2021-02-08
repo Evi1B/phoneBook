@@ -19,13 +19,22 @@ class DetailContact: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
         updateButtonSave()
     }
-    private func updateButtonSave(){
+    
+    private func updateButtonSave() {
         let name = nameTF.text ?? ""
         let phone = phoneNumberTF.text ?? ""
         
         saveButton.isEnabled = !name.isEmpty && !phone.isEmpty
+    }
+    
+    private func updateUI() {
+        nameTF.text = newContact.name
+        surnameTF.text = newContact.surname
+        phoneNumberTF.text = newContact.phoneNumber
+        cityTF.text = newContact.city
     }
     
     @IBAction func textChaged(_ sender: UITextField) {
