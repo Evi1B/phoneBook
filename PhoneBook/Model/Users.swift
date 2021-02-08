@@ -11,6 +11,6 @@ import Foundation
 struct Users {
     var name: String
     var surname: String
-    var phoneNumber: Int
+    var phoneNumber: String
     var city: String
 }

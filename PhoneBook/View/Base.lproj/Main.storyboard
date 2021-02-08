@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Main Contacts Contoller-->
         <scene sceneID="xsc-tb-yBK">
             <objects>
-                <tableViewController id="R5m-wj-94C" customClass="TableViewController" customModule="PhoneBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="R5m-wj-94C" customClass="MainContactsContoller" customModule="PhoneBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rSe-J3-yvu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,11 +174,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BWi-aE-PCl">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Zjz-Sm-Y62"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="ucD-cf-Maj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Zjz-Sm-Y62">
+                            <connections>
+                                <segue destination="Kgy-Af-t55" kind="unwind" unwindAction="unwindSegueWithSegue:" id="bZh-cl-YBR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="ucD-cf-Maj">
+                            <connections>
+                                <segue destination="Kgy-Af-t55" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="Kj3-fM-jvq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cityTF" destination="gm5-Fs-dQF" id="llV-Nv-TxB"/>
+                        <outlet property="nameTF" destination="QYa-hZ-NTh" id="sVd-T5-Ds9"/>
+                        <outlet property="phoneNumberTF" destination="JKq-wO-NB9" id="jg7-as-IeI"/>
+                        <outlet property="surnameTF" destination="sHP-5H-3Kp" id="5ia-5f-Ymz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iga-Fv-OzC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Kgy-Af-t55" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2353.6231884057975" y="43.526785714285715"/>
         </scene>

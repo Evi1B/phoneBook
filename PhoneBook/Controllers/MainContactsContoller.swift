@@ -7,43 +7,42 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class MainContactsContoller: UITableViewController {
     
-    var usersStorage = [Users(name: "Ivan", surname: "Ivanov", phoneNumber: +1234, city: "Kyiv"),
-                 Users(name: "Sergey", surname: "", phoneNumber: 1234, city: "Kyiv"),
-                 Users(name: "Bogdan", surname: "Akopov", phoneNumber: 1234, city: "Kyiv")]
+    var usersStorage = [Users(name: "Ivan", surname: "Ivanov", phoneNumber: "+1234", city: "Kyiv"),
+                 Users(name: "Sergey", surname: "", phoneNumber: "1234", city: "Kyiv"),
+                 Users(name: "Bogdan", surname: "Akopov", phoneNumber: "1234", city: "Kyiv")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.leftBarButtonItem = self.editButtonItem
-        title = "Contacts" 
-        
-        
+        title = "Contacts"
     }
-
+    @IBAction func unwindSegue(segue: UIStoryboardSegue){
+        guard segue.identifier == "saveSegue" else { return }
+        
+        let newIndexPath = IndexPath(row: usersStorage.count, section: 0)
+        let sourceVC = segue.source as! DetailContact
+        let users = sourceVC.newContact
+        
+        usersStorage.append(users)
+        tableView.insertRows(at: [newIndexPath], with: .fade)
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return usersStorage.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactCell
 
         let model = usersStorage[indexPath.row]
-        
         cell.set(object: model)
         return cell
     }
